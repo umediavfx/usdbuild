@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ### Settings
-export MAYA_LOCATION=/opt/software/thirdparty/autodesk/maya/2018.5/
-export MAYA_DEVKIT_LOCATION=/uvfx/Homes/wdekeersmaecker/MayaSDK/
+export MAYA_LOCATION=/usr/autodesk/maya2018/
+export MAYA_DEVKIT_LOCATION=/usr/autodesk/MayaSDK/
 GIT_ORIGIN_URL=https://github.com/LumaPictures/AL_USDMaya.git
 GIT_BRANCH=luma
 GIT_TAG=deb432bbc52da58c8cea2bbe3625720059c61247
