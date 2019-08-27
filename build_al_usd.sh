@@ -1,3 +1,6 @@
+#!/bin/bash
+
+### Settings
 export MAYA_LOCATION=/opt/software/thirdparty/autodesk/maya/2018.5/
 export MAYA_DEVKIT_LOCATION=/uvfx/Homes/wdekeersmaecker/MayaSDK/
 GIT_ORIGIN_URL=https://github.com/LumaPictures/AL_USDMaya.git
@@ -10,6 +13,7 @@ DEP_BOOST_URL="https://sourceforge.net/projects/boost/files/boost/${DEP_BOOST_VE
 
 ROOT_DIR=$(cd .; pwd)
 LIBRARIES_DIR=$ROOT_DIR/AL_USD_libraries
+###
 
 echo Root dir is $ROOT_DIR
 
@@ -28,6 +32,7 @@ if [ ! -d AL_USDMaya ]; then
    git checkout $GIT_BRANCH
    git checkout $GIT_TAG
    cd ..
+   echo Applying patches
    patch -p0 < sourcepatches/ALUSD_FindMaya.patch || exit 1
 fi
 
@@ -54,6 +59,7 @@ source ./USD_build/venv/bin/activate
 
 mkdir AL_USD_build
 cd AL_USD_build
+echo Running CMake
 cmake \
 	-DCMAKE_INSTALL_PREFIX=$ROOT_DIR/AL_USD_install \
 	-DCMAKE_MODULE_PATH=/usr/local \
@@ -68,5 +74,6 @@ cmake \
 	$ROOT_DIR/AL_USDMaya
 
 ### Build and install
+echo Compiling
 make -j $(nproc) install
 

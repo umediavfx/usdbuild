@@ -1,6 +1,10 @@
-export MAYA_LOCATION=/opt/software/thirdparty/autodesk/maya/2018.5/
+#!/bin/bash
+
+### Settings
+export MAYA_LOCATION=/usr/autodesk/maya2018/
 GIT_ORIGIN_URL=https://github.com/PixarAnimationStudios/USD.git
 GIT_TAG=v19.07
+###
 
 if [ ! -d USD ]; then
    echo Cloning USD
@@ -8,6 +12,7 @@ if [ ! -d USD ]; then
    cd USD
    git checkout $GIT_TAG
    cd ..
+   echo Applying patches
    patch -p0 < sourcepatches/USD_FindMaya.patch
 fi
 
