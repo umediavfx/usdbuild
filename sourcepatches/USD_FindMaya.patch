@@ -1,0 +1,11 @@
+--- USD/cmake/modules/FindMaya_orig.cmake	2019-08-16 12:34:05.895915694 +0200
++++ USD/cmake/modules/FindMaya.cmake	2019-08-16 12:33:31.447917210 +0200
+@@ -177,7 +177,7 @@
+ endforeach(MAYA_LIB)
+ 
+ find_program(MAYA_EXECUTABLE
+-        maya
++        NAMES maya maya.bin
+     HINTS
+         "${MAYA_LOCATION}"
+         "$ENV{MAYA_LOCATION}"
